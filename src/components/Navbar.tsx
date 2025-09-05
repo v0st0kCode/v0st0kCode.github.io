@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
           to="/" 
           className="font-outfit font-normal text-xl tracking-tight hover:opacity-80 transition-opacity text-shadow"
         >
-          Ivan Thomas
+          Ivan Thomas — Digital Product Designer
         </Link>
         
         <div className="flex space-x-8">
