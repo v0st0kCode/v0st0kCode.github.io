@@ -22,22 +22,14 @@ const Navbar: React.FC = () => {
         ? 'py-3 bg-white/95 backdrop-blur-md shadow-sm' 
         : 'py-5 bg-gradient-to-b from-white/90 to-white/0'
     }`}>
-      <nav className="container-custom flex justify-between items-center">
+      <nav className="container-custom flex justify-center items-center">
         <Link 
           to="/" 
-          className="font-outfit font-normal text-xl tracking-tight hover:opacity-80 transition-opacity text-shadow"
+          className="font-outfit font-normal text-xl tracking-tight hover:opacity-80 transition-opacity text-shadow text-center mt-6"
         >
-          Ivan Thomas &nbsp; · &nbsp; Digital Product Design
+          <div className="text-3xl">iThomas</div>
+          <div className="text-sm text-muted-foreground uppercase tracking-wider">DIGITAL PRODUCT DESIGN</div>
         </Link>
-        
-        <div className="flex space-x-8">
-          <a 
-            href="mailto:hello@ivanthomas.pro" 
-            className="nav-link after:w-0 hover:after:w-full"
-          >
-            Contact
-          </a>
-        </div>
       </nav>
     </header>
   );
