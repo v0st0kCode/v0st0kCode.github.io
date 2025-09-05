@@ -1,69 +1,98 @@
-# Welcome to your Lovable project
+# Ivan Thomas - Portfolio
 
-## Project info
+A modern, interactive portfolio website showcasing digital product design work.
 
-**URL**: https://lovable.dev/projects/de79453a-84d3-4f98-8e20-a3152496863d
+## 🚀 Quick Start
 
-## How can I edit this code?
+### Local Development
 
-There are several ways of editing your application.
+```bash
+# Install dependencies
+npm install
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/de79453a-84d3-4f98-8e20-a3152496863d) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Start development server on localhost:8081
+npm start
+# or
+npm run dev:8081
 ```
 
-**Edit a file directly in GitHub**
+**Access your site at: http://localhost:8081**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Alternative: Use the development script
 
-**Use GitHub Codespaces**
+```bash
+# Make the script executable (first time only)
+chmod +x dev.sh
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Run the development helper
+./dev.sh
+```
 
-## What technologies are used for this project?
+## 📝 Available Commands
 
-This project is built with .
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start dev server on localhost:8081 (recommended) |
+| `npm run dev` | Start dev server on default port |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🎨 Features
 
-## How can I deploy this project?
+- **Interactive Particle Animation**: Engaging home page with interactive dots
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Modern Tech Stack**: React, TypeScript, Vite
+- **Fast Development**: Hot module replacement and instant updates
+- **Clean Codebase**: Optimized and cleaned of unused dependencies
 
-Simply open [Lovable](https://lovable.dev/projects/de79453a-84d3-4f98-8e20-a3152496863d) and click on Share -> Publish.
+## 📁 Project Structure
 
-## I want to use a custom domain - is that possible?
+```
+src/
+├── components/          # React components
+│   ├── Navbar.tsx      # Navigation
+│   ├── ParticleHeader.tsx # Particle animation
+│   └── ui/             # UI components
+├── pages/              # Page components
+│   ├── Index.tsx       # Home page
+│   ├── Work.tsx        # Portfolio
+│   ├── CaseStudy.tsx   # Case studies
+│   └── NotFound.tsx    # 404 page
+├── data/               # Project data
+└── hooks/              # Custom hooks
+```
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+## 🔧 Development Workflow
+
+1. **Start Development**: `npm start`
+2. **Make Changes**: Edit files in `src/` directory
+3. **See Changes**: Browser updates automatically
+4. **Test Production**: `npm run build && npm run preview`
+5. **Deploy**: Push to GitHub for automatic deployment
+
+## 📖 Detailed Documentation
+
+See [DEVELOPMENT.md](./DEVELOPMENT.md) for comprehensive development guide.
+
+## 🛠️ Technologies Used
+
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Styling
+- **P5.js** - Particle animation
+- **React Router** - Navigation
+- **shadcn/ui** - UI components
+
+## 🚀 Deployment
+
+This project is configured for GitHub Pages deployment:
+
+1. **Build**: `npm run build`
+2. **Deploy**: Push changes to GitHub
+3. **Access**: Your site will be available at your GitHub Pages URL
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).

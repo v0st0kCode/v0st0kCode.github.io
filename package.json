@@ -5,10 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:8081": "vite --port 8081",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:8081": "vite preview --port 8081",
+    "start": "npm run dev:8081"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
