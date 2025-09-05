@@ -1,16 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
   
-  // Check if link is active
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
-
   // Add scroll event listener
   useEffect(() => {
     const handleScroll = () => {
@@ -37,12 +31,6 @@ const Navbar: React.FC = () => {
         </Link>
         
         <div className="flex space-x-8">
-          <Link 
-            to="/about" 
-            className={`nav-link ${isActive('/about') ? 'after:w-full font-medium' : 'after:w-0'}`}
-          >
-            About
-          </Link>
           <a 
             href="mailto:hello@ivanthomas.pro" 
             className="nav-link after:w-0 hover:after:w-full"
