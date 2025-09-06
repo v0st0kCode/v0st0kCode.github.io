@@ -21,7 +21,7 @@ const Index = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
-    }, 300); // Small delay to ensure animation is visible
+    }, 800); // Delay hero content to appear after navbar title
 
     return () => clearTimeout(timer);
   }, []);
@@ -53,13 +53,11 @@ const Index = () => {
         <ParticleHeader />
         <div className="absolute inset-0 flex items-center justify-center pb-16">
           <div className={`container-custom text-center max-w-4xl transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <span className="inline-block py-1 px-3 mb-6 text-xs font-mono font-bold tracking-wider uppercase text-muted-foreground/60 animate-pulse">
-              THIS PORTFOLIO IS A <span className="underline">WORK IN PROGRESS</span>
-            </span>
             <h1 className="heading-xl mx-auto mb-8 text-6xl">
               Connecting the dots since 1999
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">I'm a digital product designer with over 25 years of experience crafting user-friendly digital products that connect people and technology.<br /><br />I'm currently updating my portfolio. In the meantime, you can view my profile on LinkedIn or send me a message.</p>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">Hey, I’m a digital product designer with more than two decades of experience crafting user‑friendly and result‑oriented digital solutions. The portfolio’s still being polished, but you can peek at my LinkedIn or drop me a line—happy to chat!</p>
+
             <div className="flex items-center justify-center space-x-4">
               <a href="https://www.linkedin.com/in/ivanthomasgarces/" target="_blank" rel="noopener noreferrer" className="button-primary">
                 <Linkedin size={20} />

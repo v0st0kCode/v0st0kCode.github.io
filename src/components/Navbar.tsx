@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   
   // Add scroll event listener
   useEffect(() => {
@@ -16,6 +17,15 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Loading effect for title
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 300); // Small delay to ensure animation is visible
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
@@ -25,9 +35,10 @@ const Navbar: React.FC = () => {
       <nav className="container-custom flex justify-center items-center">
         <Link 
           to="/" 
-          className="font-outfit font-normal text-xl tracking-tight hover:opacity-80 transition-opacity text-shadow text-center mt-6"
+          className={`font-outfit font-normal text-xl tracking-tight hover:opacity-80 transition-all duration-1000 ease-out text-shadow text-center ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          style={{ marginTop: '100px' }}
         >
-          <div className="text-3xl">iThomas</div>
+          <div className="text-5xl">iThomas</div>
           <div className="text-sm text-muted-foreground uppercase tracking-wider">DIGITAL PRODUCT DESIGN</div>
         </Link>
       </nav>
