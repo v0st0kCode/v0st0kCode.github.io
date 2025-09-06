@@ -29,6 +29,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
   const [fadeOutCollected, setFadeOutCollected] = useState(false);
   const [celebrationActive, setCelebrationActive] = useState(false);
   const [dotsVisible, setDotsVisible] = useState(true);
+  const [gameCompleted, setGameCompleted] = useState(false);
   const totalParticles = 80;
   const { toast } = useToast();
   const counterColor = "bg-black/70"; // Using the same color as the counter background
@@ -58,6 +59,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
     setFadeOutCollected(true);
     setCelebrationActive(true);
     setDotsVisible(false); // Hide dots during celebration
+    setGameCompleted(true); // Mark game as completed
     fireworksEffect();
     
     setTimeout(() => fireworksEffect(), 800);
@@ -75,6 +77,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
         setFadeOutCollected(false);
         setCelebrationActive(false);
         setDotsVisible(true); // Show dots again as non-interactive grid
+        // Don't re-enable game - keep it completed
       }, 5000);
     }, 4000);
   };
@@ -147,7 +150,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
           const mouseInfluence = p5.Vector.sub(mouse, this.pos);
           const mouseDistance = mouseInfluence.mag();
           
-          if (gameActive && isMouseInsideCanvas && mouseDistance < 60 && !this.imanted && !isHoveringContent && !celebrationActive) {
+          if (gameActive && !gameCompleted && isMouseInsideCanvas && mouseDistance < 60 && !this.imanted && !isHoveringContent && !celebrationActive) {
             this.imanted = true;
             imantedParticles.add(this.id);
             
@@ -173,6 +176,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
               setCounterPosition({ x: this.pos.x, y: this.pos.y });
             }
           } else {
+            // Allow magnetic effects even when game is completed, but prevent collection
             if (mouseDistance < 120 && !celebrationActive) {
               mouseInfluence.setMag(-1 * (120 - mouseDistance) * 0.05);
               this.applyForce(mouseInfluence);
@@ -229,6 +233,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
             p.fill(dotColor.r, dotColor.g, dotColor.b, 50 * displayOpacity * fadeOutOpacity);
             p.circle(this.pos.x, this.pos.y, this.radius * 2.5 * dotSizeMultiplier);
           } else {
+            // Show dots with normal opacity even when game is completed
             const alpha = p.map(p5.Vector.dist(this.pos, this.target), 0, 100, 90, 40);
             p.fill(dotColor.r, dotColor.g, dotColor.b, alpha * displayOpacity);
             p.circle(this.pos.x, this.pos.y, this.radius * 2);
@@ -391,7 +396,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
     return () => {
       sketchRef.current?.remove();
     };
-  }, [gameActive, fadeOutCollected, celebrationActive, dotsVisible]);
+  }, [gameActive, fadeOutCollected, celebrationActive, dotsVisible, gameCompleted]);
 
   const handleMouseEnterContent = () => {
     setIsHoveringContent(true);
@@ -426,7 +431,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
         onMouseLeave={handleMouseLeaveContent}
       />
       
-      {gameActive && (
+      {gameActive && !gameCompleted && (
         <div 
           className={`fixed px-3 py-1 ${counterColor} text-white rounded-full text-sm font-mono z-20 pointer-events-none transition-all duration-300 ease-out ${isMouseInside ? 'opacity-100' : 'opacity-0'}`}
           style={{ 

@@ -55,8 +55,8 @@ const Index = () => {
           <div className={`container-custom text-center max-w-4xl transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="heading-xl mx-auto mb-8 text-6xl">
               <span className="block md:inline">Connecting</span>
-              <span className="block md:inline">the dots</span>
-              <span className="block md:inline">since 1999</span>
+              <span className="block md:inline md:ml-2">the dots</span>
+              <span className="block md:inline md:ml-2">since 1999</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">Hey, I’m a digital product designer with more than two decades of experience crafting user‑friendly and result‑oriented digital solutions. The portfolio’s still being polished, but you can peek at my LinkedIn or drop me a line—happy to chat!</p>
 
