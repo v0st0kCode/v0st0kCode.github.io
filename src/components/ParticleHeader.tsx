@@ -30,6 +30,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
   const [celebrationActive, setCelebrationActive] = useState(false);
   const [dotsVisible, setDotsVisible] = useState(true);
   const [gameCompleted, setGameCompleted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const totalParticles = 80;
   const { toast } = useToast();
   const counterColor = "bg-black/70"; // Using the same color as the counter background
@@ -47,8 +48,17 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
   useEffect(() => {
     window.triggerParticleCelebration = triggerCelebration;
     
+    // Detect mobile device
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
     return () => {
       delete window.triggerParticleCelebration;
+      window.removeEventListener('resize', checkMobile);
     };
   }, []);
 
@@ -205,7 +215,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
           }
           
           // Handle transition opacity for dots
-          if (!dotsVisible) {
+          if (!dotsVisible || (gameCompleted && isMobile)) {
             this.opacity = p.max(this.opacity - 15, 0); // Fade out faster
           } else {
             this.opacity = p.min(this.opacity + 10, 255); // Fade in slower
@@ -396,7 +406,7 @@ const ParticleHeader: React.FC<ParticleHeaderProps> = ({ className }) => {
     return () => {
       sketchRef.current?.remove();
     };
-  }, [gameActive, fadeOutCollected, celebrationActive, dotsVisible, gameCompleted]);
+  }, [gameActive, fadeOutCollected, celebrationActive, dotsVisible, gameCompleted, isMobile]);
 
   const handleMouseEnterContent = () => {
     setIsHoveringContent(true);
