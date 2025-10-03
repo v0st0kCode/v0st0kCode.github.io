@@ -57,7 +57,7 @@ const Index = () => {
               <span className="block md:inline md:ml-2">the dots</span>
               <span className="block md:inline md:ml-2">since 1999</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">Hey, I’m Ivan Thomasa digital product designer with more than two decades of experience crafting user‑friendly and result‑oriented digital solutions. The portfolio’s still being polished, but you can peek at my LinkedIn or drop me a line—happy to chat!</p>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">Hey, I’m Ivan Thomas, a digital product designer with more than two decades of experience crafting user‑friendly and result‑oriented digital solutions. The portfolio’s still being polished, but you can peek at my LinkedIn or drop me a line—happy to chat!</p>
 
             <div className="flex items-center justify-center space-x-4">
               <a href="https://www.linkedin.com/in/ivanthomasgarces/" target="_blank" rel="noopener noreferrer" className="button-primary">
