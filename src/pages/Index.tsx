@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import ParticleHeader from '../components/ParticleHeader';
 import Navbar from '../components/Navbar';
 import { getFeaturedProjects } from '../data/projects';
