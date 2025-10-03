@@ -28,8 +28,8 @@ const Navbar: React.FC = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'py-3 bg-white/95 backdrop-blur-md shadow-sm' 
-        : 'py-5 bg-gradient-to-b from-white/90 to-white/0'
+        ? 'py-3 bg-white/95 shadow-sm' 
+        : 'py-5 bg-white/90'
     }`}>
       <nav className="container-custom flex justify-center items-center">
         <div 
